@@ -1,7 +1,16 @@
+    
+
+   
+
+
+
+
+
+
 let displayValue = "";
 
 function appendToDisplay(value) {
-    displayValue += value;
+    displayValue = displayValue + value;
     document.getElementById("display").value = displayValue;
 }
 
@@ -9,10 +18,14 @@ function clearDisplay() {
     displayValue = "";
     document.getElementById("display").value = "";
 }
-
 function calculate() {
-    const operators = displayValue.match(/[+\-*/%]/g);
-    const numbers = displayValue.split(/[+\-*/%]/).map(Number);
+    const operators = displayValue.match(/[+\-*/]/g);
+    const numbers = displayValue.split(/[+\-*/]/).map(Number);
+
+    if (numbers.length === 1) {
+        document.getElementById("display").value = numbers[0];
+        return;
+    }
 
     if (operators === null || numbers.length < 2) {
         document.getElementById("display").value = "Error";
@@ -21,86 +34,32 @@ function calculate() {
 
     let result = numbers[0];
     for (let i = 0; i < operators.length; i++) {
-        const operator = operators[i];
-        const nextNumber = numbers[i + 1];
-        
+        var operator = operators[i];
+        var nextNumber = numbers[i + 1];
         if (operator === '+') {
-            result += nextNumber;
+            result = result + nextNumber;
         } else if (operator === '-') {
-            result -= nextNumber;
+            result = result - nextNumber;
         } else if (operator === '*') {
-            result *= nextNumber;
+            result = result * nextNumber;
         } else if (operator === '/') {
             if (nextNumber === 0) {
                 document.getElementById("display").value = "Error: Division by zero";
                 return;
             }
-            result /= nextNumber;
+            result = result / nextNumber;
         } else if (operator === '%') {
-            result %= nextNumber;
+            if (nextNumber >= 0 && nextNumber <= 1) {
+                result = result * nextNumber;
+            } else {
+                result = result * (nextNumber / 100);
+            }
         }
     }
 
     document.getElementById("display").value = result;
     displayValue = result.toString();
 }
-
-
-
-
-// let displayValue = "";
-
-// function appendToDisplay(value) {
-//     displayValue = displayValue + value;
-//     document.getElementById("display").value = displayValue;
-// }
-
-// function clearDisplay() {
-//     displayValue = "";
-//     document.getElementById("display").value = "";
-// }
-// function calculate() {
-//     const operators = displayValue.match(/[+\-*/]/g);
-//     const numbers = displayValue.split(/[+\-*/]/).map(Number);
-
-//     if (numbers.length === 1) {
-//         document.getElementById("display").value = numbers[0];
-//         return;
-//     }
-
-//     if (operators === null || numbers.length < 2) {
-//         document.getElementById("display").value = "Error";
-//         return;
-//     }
-
-//     let result = numbers[0];
-//     for (let i = 0; i < operators.length; i++) {
-//         var operator = operators[i];
-//         var nextNumber = numbers[i + 1];
-//         if (operator === '+') {
-//             result = result + nextNumber;
-//         } else if (operator === '-') {
-//             result = result - nextNumber;
-//         } else if (operator === '*') {
-//             result = result * nextNumber;
-//         } else if (operator === '/') {
-//             if (nextNumber === 0) {
-//                 document.getElementById("display").value = "Error: Division by zero";
-//                 return;
-//             }
-//             result = result / nextNumber;
-//         } else if (operator === '%') {
-//             if (nextNumber >= 0 && nextNumber <= 1) {
-//                 result = result * nextNumber;
-//             } else {
-//                 result = result * (nextNumber / 100);
-//             }
-//         }
-//     }
-
-//     document.getElementById("display").value = result;
-//     displayValue = result.toString();
-// }
 
 // function calculate() {
 //         // this method brief way
