@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div id="prime">
+        <input type="text" class="inputs" id="display">
+        <table style="margin:-3px 0px;">
+            <tr>
+                <td><button onclick="appendToDisplay('%')">%</button></td>
+                <td><button onclick="appendToDisplay('/')" >/</button></td>
+                <td><button onclick="clearDisplay()" id="oranger" style="width:63px;">C</button></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td><button onclick="appendToDisplay('7')">7</button></td>
+                <td><button onclick="appendToDisplay('8')">8</button></td>
+                <td><button onclick="appendToDisplay('9')">9</button></td>
+                <td><button onclick="appendToDisplay('*')" id="oranger">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="appendToDisplay('4')">4</button></td>
+                <td><button onclick="appendToDisplay('5')">5</button></td>
+                <td><button onclick="appendToDisplay('6')">6</button></td>
+                <td><button onclick="appendToDisplay('-')" id="oranger">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="appendToDisplay('1')">1</button></td>
+                <td><button onclick="appendToDisplay('2')">2</button></td>
+                <td><button onclick="appendToDisplay('3')">3</button></td>
+                <td><button onclick="appendToDisplay('+')" id="oranger">+</button></td>
+            </tr>
+        </table>
+        <table style="margin:-3px 0px;">
+            <tr>
+                <td><button id="button0" onclick="appendToDisplay('0')">0</button></td>
+                <td><button onclick="appendToDisplay('.')">.</button></td>
+                <td><button id="oranger" onclick="calculate()">=</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>

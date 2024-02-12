@@ -1,0 +1,56 @@
+body{
+  background-color: black;  
+
+}
+div{
+    border: 1px solid aqua;
+    padding: 10px;
+    border-radius: 5px;
+}
+.inputs{
+    background-color: rgba(214, 203, 187, 0.432);
+    width:130px;
+    border:0px solid black;
+    margin-bottom: 6px;
+    height: 25px;
+    border-radius: 10px;
+
+}
+#prime{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+button{
+    background-color: rgba(196, 193, 193, 0.801);
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    border:0px solid black
+}
+button::hover{
+    background-color: rgba(196, 193, 193, 0.801);
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    border:1px solid orange;
+}
+#oranger{
+    background-color:rgb(255, 153, 0);
+}
+
+#button0 {
+    width: 63px;
+    float: left;
+   
+  }
+
+#display{
+    color: orange;
+}
+  
+ 
+  
+  
